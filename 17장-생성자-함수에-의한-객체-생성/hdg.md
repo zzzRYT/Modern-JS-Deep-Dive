@@ -26,7 +26,7 @@ person.sayHello = function () {
 
 - String, Number, Boolean, Function, Array, Date, RegExp, Promise 등의 빌트인 생성자 함수
 
-> 예제 17-02
+<img width="491" height="592" alt="image" src="https://github.com/user-attachments/assets/fd12869d-f98e-4195-bbed-9ce0083ec83b" />
 
 ## 17.2 생성자 함수
 
@@ -43,7 +43,8 @@ person.sayHello = function () {
 
 - 클래스처럼 동일한 형태의 객체를 간편하게 생성할 수 있다.
 
-> 예제 17-04
+<img width="564" height="385" alt="image" src="https://github.com/user-attachments/assets/fe4928ef-7d1b-4bd8-9a3b-dba2d0529336" />
+
 
 > 클래스를 사용하지 않는게 좀 어색한데. 내부 초기화 함수라고 생각하면 이해가 된다.
 
@@ -54,11 +55,13 @@ person.sayHello = function () {
 
 #### this 바인딩
 
-> this 예제
+<img width="760" height="253" alt="image" src="https://github.com/user-attachments/assets/6c3bac8f-e475-4b4e-8f8e-f0bcfe8cf62d" />
+
 
 - this는 객체 자신의 프로퍼티나 메서드를 참조하기 위한 자기 참조 변수(self-referencing variable)다 this가 가리키는값,즉 this바인딩은 함수 호출 방식에 따라 동적으로 결정된다.
 
-> 예제 17-05
+<img width="601" height="296" alt="image" src="https://github.com/user-attachments/assets/3c78871b-9a60-4add-84c4-5531862127ee" />
+
 
 > this를 그냥 놓으면 글로벌 또는 윈도우 전역객체를 가리키고, 생성자 함수에서는 인스턴스를 가리킨다.
 
@@ -166,7 +169,8 @@ const circlel = new Circle(5); // Circle 인스턴스
 
 - 결과적으로 함수가 일반객체와 다르게 함수로서 동작하기 위한 내부슬롯과 내부 메서드가 있는데, (1)함수를 호출하면 내부 메서드 [[Call]]이 호출되고, (2)new 연산자와 함께 생성자 함수로서 호출하면 내부 메서드 [[Construct]]가 호출된다.
 
-> 【예제 17-14 】
+<img width="396" height="206" alt="image" src="https://github.com/user-attachments/assets/c0672c9f-709f-40a5-bc76-1dd5acc6f284" />
+
 
 - [[Call]]을 갖는 함수 객체 : callable
 - [[Construct]]를 갖는 함수 객체 : constructor
@@ -174,7 +178,8 @@ const circlel = new Circle(5); // Circle 인스턴스
 
 - 함수는 반드시 호출할 수 있어야 하므로 항상 callable이고, 생성자 함수로 동작하는지에 따라 constructor와 non—constructor로 구분된다.
 
-> 그림 17-1
+<img width="621" height="262" alt="image" src="https://github.com/user-attachments/assets/0073225c-1546-49d4-8634-c6aba345ccb8" />
+
 
 ### 17.2.5 constructor와 non-constructor의 구분
 
@@ -182,7 +187,9 @@ const circlel = new Circle(5); // Circle 인스턴스
 
 - 주의할 것은 ECMAScript 사양에서 메서드로 인정하는 범위가 일반적인 의미의 메서드보다 좁다는 것이다.
 
-> 예제 17-15 】
+<img width="646" height="314" alt="image" src="https://github.com/user-attachments/assets/a134b9d2-9bc7-41d3-afa6-1b6622b5d6d0" />
+<img width="490" height="321" alt="image" src="https://github.com/user-attachments/assets/9169d3f8-b5b9-4784-99f4-c7882aa0afb2" />
+
 
 - 객체 프로퍼티의 값으로 함수를 사용하는걸 메서드로 많이 통칭하는데, ECMAScript에서는 ES6의 메서드 축약 표현
   만을 메서드로 의미한다.
