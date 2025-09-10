@@ -50,7 +50,8 @@ person.sayHello = function () {
 
 - 객체지향언어의 생성자 함수와 다르게 형식이 정해진게 아니라, **일반 함수처럼 선언한 후 new와 함께 호출하면 생성자 함수로 동작**한다.
 
-> 예제 17-06
+<img width="589" height="258" alt="image" src="https://github.com/user-attachments/assets/83b1aaa0-62a2-4acf-8ab6-36a7ab805812" />
+
 > new를 사용하지 않아도 객체를 생성하는 생성자 함수 방식은 뒤에서 소개한다.
 
 #### this 바인딩
@@ -103,7 +104,8 @@ function Circle(radius) {
 2. this가 이 객체에 바인딩 됨
 3. 이 처리들은 함수코드가 실행되는 런타임 전에 실행된다.
 
-> 바인딩 설명 예제
+<img width="768" height="116" alt="image" src="https://github.com/user-attachments/assets/bf89b1ac-8058-4fa5-b701-8eff2c908573" />
+
 
 ```js
 function Circle(radius) {
