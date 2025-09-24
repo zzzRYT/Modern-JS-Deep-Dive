@@ -12,7 +12,7 @@
 
 - 표준 빌트인 객체는 ECMAScript 사양에 정의된 객체를 말한다. 실행 환경(브라우저, Node.js)과 관계없이 언제나 사용할 수 있다.
 
-- 호스트 객체는 ECMAScript 사양은 아니지만 실행환경에서 추가로 제겅하는 객체다. (DOM, Web Worker)
+- 호스트 객체는 ECMAScript 사양은 아니지만 실행환경에서 추가로 제공하는 객체다. (DOM, Web Worker)
 
 - 사용자 정의 객체는 사용자가 직접 정의한 객체를 말한다.
 
@@ -28,17 +28,21 @@
 
 - 생성자 아닌 객체는 정적 메서드만 제공한다.
 
-> 예제 21-01
+<img width="405" height="183" alt="image" src="https://github.com/user-attachments/assets/54a99209-13d7-472b-9f9c-4475eb529157" />
+
 
 - 생성자 함수인 표준 빌트인 객체가 생성한 인스턴스의 프로토타입은 표준 빌트인 객체의 prototype 프로퍼
   티에 바인딩된 객체다.
+  
 - 예를 들어, 표준 빌트인 객체인 String을 생성자 함수로서 호출하여 생성한 String 인스턴스의 프로토타입은 String.prototype이다.
 
-> 【예제 21-02 】
+<img width="648" height="153" alt="image" src="https://github.com/user-attachments/assets/e5a42777-e0a9-4307-87d0-46489f61e27d" />
+
 
 > 이 부분이 가장 어려웠던 문장인데, 프로토타입을 다시 읽어보니 그냥 생성자 함수로 만들어진 인스턴스가 생성자 함수의 프로퍼티인 프로토타입 객체를 상속받았다는 이야기다.
 
-> 299 페이지 298페이지 이미지 12
+<img width="405" height="548" alt="image" src="https://github.com/user-attachments/assets/ed67e8a8-93ae-41b4-b033-b0f4335b4c41" />
+<img width="405" height="542" alt="image" src="https://github.com/user-attachments/assets/432ff816-4ff2-4de2-9fd6-e8247e85e7fa" />
 
 ```js
 // Number 생성자 함수에 의한 Number 객체 생성
@@ -59,7 +63,7 @@ console.log(Number.islnteger(0.5)); // false
 
 - 문자열이나 숫자, 불리언 등의 원시값이 있는데도 문자열, 숫자, 불리언 객체를 생성하는 String, Number, Boolean 등의 표준 빌트인 생성자 함수가 존재하는 이유는 무엇일까?
 
-> 예제 21-04
+<img width="645" height="140" alt="image" src="https://github.com/user-attachments/assets/cb3035f9-faff-4092-a12e-7de0ae3b0fa8" />
 
 - 위 예제를 보면 원시값인 문자열이 객체처럼 작동한다.
 
@@ -67,7 +71,7 @@ console.log(Number.islnteger(0.5)); // false
 
 - 이처럼 문자열, 숫자, 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체(wrapper object)라 한다.
 
-> 【예제 21-05 】
+<img width="638" height="197" alt="image" src="https://github.com/user-attachments/assets/fd11d8de-d708-49fd-971e-ca2388926237" />
 
 - 위 예제에서 str.length 처럼 문자열이 마침표로 접근하면 래퍼객체가 싸이고 문자열은 래퍼 객체의 [[StringData]] 내부 슬롯에 할당된다.
 
@@ -75,7 +79,7 @@ console.log(Number.islnteger(0.5)); // false
 
 - 래퍼객체는 가비지 컬랙터의 대상이 된다.
 
-> 【예제 21-07
+<img width="648" height="174" alt="image" src="https://github.com/user-attachments/assets/e45daca5-ad9e-4af8-ab62-bdd9b33e60b0" />
 
 > 숫자도 불리언도 마찬가지
 
@@ -93,9 +97,7 @@ console.log(Number.islnteger(0.5)); // false
 
 > this, self, frames도 가리킴
 
-> 예제 globalThis 이미지
-
-> 【예제 21-08 】
+<img width="647" height="314" alt="image" src="https://github.com/user-attachments/assets/048a5872-23df-4ff0-a2ad-0b1349607e3a" />
 
 > globalThis는 ECMAScript 표준사양을 준수하는 환경에서 전역객체를 가리키는 통합된 식별자다. (window, global 다 가리킴)
 
@@ -105,7 +107,7 @@ console.log(Number.islnteger(0.5)); // false
 
 > 또 나오지만 암묵적 전역변수도 전역객체 프로퍼티가 됨
 
-> 【예제 21-10 】
+<img width="635" height="248" alt="image" src="https://github.com/user-attachments/assets/389ea4f8-d0cb-4cf9-93f4-82a9ddb48003" />
 
 - 전역객체가 최상위 객체라는건 프로토타입 상속 관계에서 최상위라는 의미는 아니다. 이건 표준 빌트인 객체 중 Object 객체
 
@@ -125,11 +127,11 @@ console.log(Number.islnteger(0.5)); // false
 
 - 빌트인 전역 프로퍼티(built-in global property)는 전역 객체의 프로퍼티를 의미하며, 애플리케이션 전역에서 사용하는 값을 제공한다.
 
-> 【예제 21-12 】
-> 【예제 21-13 ]
-> 【예제 21-14
+<img width="628" height="227" alt="image" src="https://github.com/user-attachments/assets/5e7e0243-7379-4764-8aa6-7cb4b3b2db2c" />
+<img width="638" height="156" alt="image" src="https://github.com/user-attachments/assets/76872526-bed9-4727-856a-634e4831da91" />
+<img width="652" height="153" alt="image" src="https://github.com/user-attachments/assets/1cedee21-480c-4c24-b0cd-d9cc1a5135a1" />
 
-> Infinity, NaN 는 숫자타입 원시값, undefined는 undefined타입 원시값인데 무슨 이야기인지 했는데, 전역 객체에 같은 이름의 프포퍼티들이 있고 그 안에 원시값들이 또 있다. 전역객체가 해당값들을 자주써서 바로 접근할려고 있다는거 같음.
+> Infinity, NaN 는 숫자타입 원시값, undefined는 undefined타입 원시값인데 무슨 이야기인지 했는데, 전역 객체에 같은 이름의 프로퍼티들이 있고 그 안에 원시값들이 또 있다. 전역객체가 해당값들을 자주써서 바로 접근할려고 있다는거 같음.
 
 ### 21.4.2 빌트인 전역 함수
 
@@ -148,7 +150,7 @@ console.log(Number.islnteger(0.5)); // false
 - js 코드를 나타내는 문자열을 인수로 받는다. 표현식이면 런타임에 값을 생성하고, 문이면 해당 코드를 런타임에 실행한다.
 
 ```js
-eval("1 +2; 3+4;"); // 7
+eval("1+2; 3+4;"); // 7
 ```
 
 ```js
@@ -171,7 +173,7 @@ console.log(x); // 1
 
 - 또한 let, const 키워드를 사용한 변수 선언문이면 암묵적으로 strict mode가 적용된다.
 
-> 【예제 21-19 ]
+<img width="640" height="258" alt="image" src="https://github.com/user-attachments/assets/53bffd6c-cf31-40cc-aed5-440ed827c6ec" />
 
 > eval은 보안에 취약하고 js엔진에 의해 최적화가 수행되지 않으니 사용을 금지하자.
 
@@ -179,19 +181,22 @@ console.log(x); // 1
 
 - 인수가 유한수면 true, 무한수면 false를 반환
 
-> 【예제 21-20 】 와 그 위 코드
+<img width="652" height="266" alt="image" src="https://github.com/user-attachments/assets/635d4a42-f142-400c-ba75-424e53c528c2" />
+<img width="628" height="210" alt="image" src="https://github.com/user-attachments/assets/879720ba-c2d7-4eef-87ad-aec1650a4fb0" />
 
 #### isNaN
 
 - 인수가 NaN인지 검사해 불리언을 반환
 
-> 예제 21-22 ]
+<img width="649" height="385" alt="image" src="https://github.com/user-attachments/assets/4f15ddee-8047-4d39-a375-a0a924d053b9" />
+<img width="625" height="286" alt="image" src="https://github.com/user-attachments/assets/78d8ff14-adbe-4963-9cdb-72e06917b719" />
+
 
 #### parseFloat
 
 - 전달받은 문자열 인수를 부동 소수점 숫자(floating point number), 즉 실수로 해석하여 반환한다.
 
-> [ 예제 21-23 】
+<img width="641" height="442" alt="image" src="https://github.com/user-attachments/assets/169aa0fb-880c-40a2-bce8-6fade23cdbf5" />
 
 > 아래서 더 많이 설명하지만 숫자 문자열타입(Numeric String)을 숫자(number)로 변환해 준다.
 
@@ -199,21 +204,19 @@ console.log(x); // 1
 
 - parseFloat 처럼 전달받은 문자열을 정수로 해석한다.
 
-> 【예제 21-24 】
-
 - 문자열이 아니면(정수, 불리언 등) 문자열로 변환 후 정수로 해석 한다.
 
-> [ 예제 21-25 】
+<img width="646" height="413" alt="image" src="https://github.com/user-attachments/assets/488dab01-a047-481c-b55b-1917a2c16b38" />
 
 - 두번째 인수로 진법을 나타내는 기수를 전달해 n진수로 해석해 반환할 수 있다.
 
-> 【예제 21-26 】
+<img width="647" height="206" alt="image" src="https://github.com/user-attachments/assets/1fbb202b-7ad0-48c8-8c73-a351a37cca9f" />
 
 - 참고로 정수를 n진수 문자열로 변환하고 싶을때는 Number.prototype. toString 메서드 사용
 
 > parselnt : 문자열 -> 정수 , toString : 정수 -> 문자열
 
-> 【예제 21-27 】
+<img width="659" height="450" alt="image" src="https://github.com/user-attachments/assets/b2f12161-f986-43ea-8d6b-cf0e80921cf3" />
 
 ```js
 // 16진수 리터럴 '0xf'를 16진수로 해석하고 10진수 정수로 그 결과를 반환한다.
@@ -254,9 +257,9 @@ console.log(x + y); // 30
 - 위 같은 현상을 암묵적 전역(implicit global)이라고 한다.
 
 - y는 변수가 아니므로 호이스팅이 발생하지 않는다.
+<img width="673" height="336" alt="image" src="https://github.com/user-attachments/assets/4ee0657e-9662-4d02-ad33-eb29c865f0a9" />
 
-> [ 예제 21-38 ]
 
 - 또한 y는 delete 연산자로 삭제할 수 있다. var로 선언한 전역변수도 프로퍼티로 추가되지만 변수기 때문에 delete로 삭제할 수 없다.
+<img width="679" height="398" alt="image" src="https://github.com/user-attachments/assets/8d33a651-11d2-4535-b99d-68807b29cda9" />
 
-> 【예제 21-39 】
