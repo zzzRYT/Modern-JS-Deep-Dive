@@ -22,14 +22,16 @@
 const timeoutld = setTimeout(func|code[, delay, param1, param2, ...]);
 ```
 
-> 예제 41-01
+<img width="1498" height="1280" alt="image" src="https://github.com/user-attachments/assets/e388515e-7100-442a-bae8-39efe75a861f" />
+
 
 #### clearTimeout
 
 - setTimeout이 만든 호출 스케줄링을 취소한다.
 - 인자로 타이머 id를 받는다.
 
-> 예제 41-2
+<img width="1488" height="410" alt="image" src="https://github.com/user-attachments/assets/a8a4fb7b-b657-4cb9-ae5d-070223b5c880" />
+
 
 ### 41.2.2 setinterval / clearinterval
 
@@ -54,13 +56,17 @@ const timerld = setlnterval(func|code[, delay, param1, param2, ...]);
 
 - 디바운스와 스로틀은 짧은시간 연속해서 일어나는 이벤트를 그룹화해서 과도한 호출을 방지하는 프로그래밍 기법이다.
 
-> 【예제 41-04 】
+<img width="1512" height="1138" alt="image" src="https://github.com/user-attachments/assets/5e091131-ce07-44c8-b2ed-a98b6235079d" />
+<img width="1520" height="1444" alt="image" src="https://github.com/user-attachments/assets/a878c03b-a49a-43b9-9c23-f58970d2112d" />
+
+
 
 ### 41.3.1 디바운스
 
 - 짧은 시간 간격으로 발생하는 이벤트를 그룹화해서 마지막에 한번만 이벤트 핸들러가 호출되도록 한다.
 
-> 예제 41-5
+<img width="1500" height="1404" alt="image" src="https://github.com/user-attachments/assets/d6fb29f7-7fb2-46d5-92be-c5fd744038c9" />
+
 
 input이벤트는 값을 입력할때마다 연속 발생하는데 만일 Ajax요청 같은 무거운처리를하면 서버에 부담을 줄것이다.
 입력이 완료했을때 한번만 요청전송하는게 바람직함.
