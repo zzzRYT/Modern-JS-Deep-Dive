@@ -1,0 +1,85 @@
+# 41장 타이머
+
+## 41.1 호출 스케줄링
+
+- 함수를 호출하면 함수가 즉시 실행된다. 그런데 명시적으로 호출하지 않고 일정시간 후에 호출되도록 예약하려면 타이머 함수를 사용해야 한다.
+
+- 이를 호출 스케일링이라 한다.
+
+- js엔진은 싱글스레드로 동작한다. 두가지 이상의 테스크를 동시에 실행시킬 수 없다. 이 이유로 타이머 함수 setTimeout과 setinterval은 비동기(asynchronous)처리 방식으로 동작한다
+
+## 41.2 타이머 함수
+
+### setTimeout / clearTimeout
+
+#### setTimeout
+
+- 첫번째 인수로 실행시킬 콜백함수를, 두번째 인수로 시간(ms)을 받아 실행한다.
+- 전달받은 시간이 지나면 첫번째 인수로 받은 콜백함수를 단 한번 실행시키도록, 호출 스케줄링된다.
+- 생성된 타이머를 식별할 수 있는 고유 타이어id를 반환한다. 타이머 id는 브라우저 환경에서는 숫자, nodejs 환경인 경우 객체다.
+
+```js
+const timeoutld = setTimeout(func|code[, delay, param1, param2, ...]);
+```
+
+<img width="1498" height="1280" alt="image" src="https://github.com/user-attachments/assets/e388515e-7100-442a-bae8-39efe75a861f" />
+
+
+#### clearTimeout
+
+- setTimeout이 만든 호출 스케줄링을 취소한다.
+- 인자로 타이머 id를 받는다.
+
+<img width="1488" height="410" alt="image" src="https://github.com/user-attachments/assets/a8a4fb7b-b657-4cb9-ae5d-070223b5c880" />
+
+
+### 41.2.2 setinterval / clearinterval
+
+#### setinterval
+
+- 두번째 인수로 받은 시간(ms)으로 반복동작하는 타이머를 생성한다. 즉 받은ms마다 콜백함수를 호출 한다.
+- 타이머가 취소될 때까지 계속된다.
+
+```js
+const timerld = setlnterval(func|code[, delay, param1, param2, ...]);
+```
+
+#### clearinterval
+
+- setinterval의 호출 스케줄링을 취소한다.
+
+## 41.3 디바운스와 스로틀
+
+- 디바운스와 스로틀 구현에 타이머 함수가 사용된다. 다바운스와 스로틀을 통해 타이머 함수의 활용을 살펴보도록 한다.
+
+- scroll, resize, input, mousemove 같은 이벤트는 짧은 시간 간격으로 연속해서 발생한다. 이러한 이벤트에 바인딩한 이벤트 핸들러는 과도하게 호출되어 성능에 문제를 일으킬 수 있다.
+
+- 디바운스와 스로틀은 짧은시간 연속해서 일어나는 이벤트를 그룹화해서 과도한 호출을 방지하는 프로그래밍 기법이다.
+
+<img width="1512" height="1138" alt="image" src="https://github.com/user-attachments/assets/5e091131-ce07-44c8-b2ed-a98b6235079d" />
+<img width="1520" height="1444" alt="image" src="https://github.com/user-attachments/assets/a878c03b-a49a-43b9-9c23-f58970d2112d" />
+
+
+
+### 41.3.1 디바운스
+
+- 짧은 시간 간격으로 발생하는 이벤트를 그룹화해서 마지막에 한번만 이벤트 핸들러가 호출되도록 한다.
+
+<img width="1500" height="1404" alt="image" src="https://github.com/user-attachments/assets/d6fb29f7-7fb2-46d5-92be-c5fd744038c9" />
+
+
+input이벤트는 값을 입력할때마다 연속 발생하는데 만일 Ajax요청 같은 무거운처리를하면 서버에 부담을 줄것이다.
+입력이 완료했을때 한번만 요청전송하는게 바람직함.
+
+해당 코드는 짧은시간 이벤트가 연속 발생하면 이벤트핸들러를 호출하지 않다가, 일정시간 동안 이벤트가 들어오지 않으면 핸들러를 한번 호출한다.
+
+### 41.3.2 스로틀
+
+- 짧은 시간 간격으로 연속해서 발생하는 이벤트를 그룹하해 일정시간 단위로 이벤트 핸들러가 호출되도록 호출주기를 만든다.
+
+> 예제 41-6
+
+scroll 이벤트는 짧은 시간 과도하게 이벤트 핸들러를 호출한다. 이를 방지하기 위해 delay 시간을 정하고
+이벤트가 발생하면 아무것도 하지 않다가 delay 시간 이후 콜백함수를 호출, 다시 새로운 타이머를 재설정한다.
+
+- scroll 이벤트 처리나 무한스크롤 ui구현등에 유용하게 사용된다.
