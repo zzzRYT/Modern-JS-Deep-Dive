@@ -127,13 +127,15 @@ get(`${url}/posts/1`, ({ userId }) => {
 });
 ```
 
-> 예제 45-08
+<img width="744" height="270" alt="image" src="https://github.com/user-attachments/assets/118280cc-e2bd-474c-a433-a675e4242248" />
+
 
 ### 45.1.2 에러 처리의 한계
 
 - 비동기 처리를 위한 콜백 패턴의 문제점 중에서 가장 심각한 것은 에러 처리가 곤란한 점이다.
 
-> 예제 45-09
+<img width="774" height="192" alt="image" src="https://github.com/user-attachments/assets/b88ce59e-7a6b-4eb7-b419-35e8e3fd7f3a" />
+
 
 1초뒤 콜백함수는 에러를 발생시키지만, catch 코드블록은 캐치되지 않는다. 에러는 호출자caller 방향으로 전파되기 때문이다.
 
@@ -153,11 +155,13 @@ get(`${url}/posts/1`, ({ userId }) => {
 2. 콜백함수는 `resolve`와 `reject` 함수를 인수로 전달 받는다.
 3. 비동기 처리가 성공하면 `resolve`를 호출해주고, 실패하면 `reject`함수를 호출해 주자.
 
-> 예제 45-10
+<img width="756" height="250" alt="image" src="https://github.com/user-attachments/assets/88084231-7e25-4840-ba87-9617d2f73051" />
+
 
 - 이전의 비동기함수 `get`을 프로미스를 사용해 구현해보기
 
-> 예제 45-11
+<img width="741" height="525" alt="image" src="https://github.com/user-attachments/assets/d208a015-3651-4dd4-b51f-f60777fdb785" />
+
 
 1. 비동기함수 `promiseGet`함수는 primise객체를 생성,반환
 2. Promise생성자는 실행시킬 콜백을 인수로 넣어주기. 콜백은 resolve, reject를 인수로 전달받음.
@@ -165,13 +169,13 @@ get(`${url}/posts/1`, ({ userId }) => {
 
 - 프로미스는 아래표와 같이 현재 비동기 처리가 어떻게 진행되고 있는지를 나타내는 상태정보를 갖는다.
 
-> 그림 45-1 위 표
+<img width="745" height="158" alt="image" src="https://github.com/user-attachments/assets/88f7b596-8c07-45c7-ad20-83a0408f693d" />
 
 - 생성 직후 기본적으로 pending 상태이다.
 
 - 프로미스의 상태는 resolve 또는 reject 함수를 호출하는 것으로 결정된다.
 
-> 그림 45-1
+<img width="738" height="303" alt="image" src="https://github.com/user-attachments/assets/0fa50fd1-f0d0-485b-8a8e-203cdf6a3bbb" />
 
 1. settled 상태 === fulfiled 또는 rejected 상태 === pending이 아닌 상태
 
@@ -179,9 +183,9 @@ get(`${url}/posts/1`, ({ userId }) => {
 
 3. 프로미스는 비동기처리 상태 뿐만아니라 처리결과(resovle, reject 호출때 인수로 넣은 값)도 상태로 갖는다.
 
-> 그림 45-2
+<img width="743" height="234" alt="image" src="https://github.com/user-attachments/assets/a2ab4b83-2eec-4a98-8821-19a2a613b3f0" />
 
-> 그림 45-3
+<img width="770" height="387" alt="image" src="https://github.com/user-attachments/assets/02eda2ce-398b-4f1b-b90c-89f9a36ca5ba" />
 
 - 프로미스는 비동기 처리상태와 처리결과를 관리하는 객체다.
 
@@ -193,7 +197,7 @@ get(`${url}/posts/1`, ({ userId }) => {
 
 ### 45.3.1 Promise.prototype.then
 
-> 예제 45-14
+<img width="748" height="208" alt="image" src="https://github.com/user-attachments/assets/a3e35b8d-6959-40ac-9d2e-09f2b1ce028f" />
 
 - `then`은 두개의 콜백을 인수로 전달받으며, fulfilled상태일때 첫번째, rejected상태일때 두번째 콜백을 호출한다.
 
@@ -203,11 +207,11 @@ get(`${url}/posts/1`, ({ userId }) => {
 
 ### 45.3.2 Promise.prototype.catch
 
-> 예제 45-15
+<img width="740" height="117" alt="image" src="https://github.com/user-attachments/assets/e15c82e9-21b2-4f39-abca-a30c101fbd65" />
 
 ### 45.3.3 Promise.prototype.finally
 
-> 예제 45-17
+<img width="766" height="108" alt="image" src="https://github.com/user-attachments/assets/f8e8e14b-3c06-4967-b3f2-69583e3a7056" />
 
 - promiseGet 함수를 후속처리 해보기
 
@@ -241,13 +245,13 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 - 이전 비동기 처리를 위한 콜백패턴은 에러처리가 곤란했다. 프로미스는 에러를 문제없이 처리할 수 있다.
 
-> 45-19
+<img width="727" height="215" alt="image" src="https://github.com/user-attachments/assets/969bc832-11cb-4e41-a677-aa9727b79935" />
 
 - 비동기처리에서 발생한 에러를 `then` 메서드의 두번째 콜백 함수인자 받아 처리하기.
 
 - 당연히 `catch`도 가능하다. catch는 내부적으로 `then(undefined, onRejected)`을 호출한다.
 
-> 예제 45-21
+<img width="757" height="186" alt="image" src="https://github.com/user-attachments/assets/8a15d67e-fdb2-4549-923e-af134af4ca14" />
 
 - then을 사용해 에러를 캐치하는건
 
@@ -260,7 +264,7 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 - 비동기 처리를 위한 콜백 패턴은 콜백 헬이 발생하는 문제가 있다. 프로미스는 후속처리 메서드를 통해 콜백 헬을 해결한다.
 
-> 예제 45-24
+<img width="745" height="228" alt="image" src="https://github.com/user-attachments/assets/80ef5541-d7cd-4223-b9a3-6bbec9931ca7" />
 
 - then -> then -> catch 순서로 후속처리 메서드를 호출한다. 항상 프로미스를 반환하므로 연속전으로 호출할 수 있다.
 
@@ -272,7 +276,7 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 - `async/awai`t을 사용하면 프로미스 후속처리 메서드 없이 마치 동기 처리 처럼 프로미스가 처리 결과를 반환하도록 구현할 수 있다.
 
-> 예제 45-25
+<img width="760" height="287" alt="image" src="https://github.com/user-attachments/assets/189572af-c63f-43a7-a183-90c4428e2d5b" />
 
 ## 45.6 프로미스의 정적 메서드
 
@@ -280,8 +284,9 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 ### 45.6.2 Promise.resolve / Promise.reject
 
-> 예제 45-26, 45-27
-> 예제 45-28, 45-29
+<img width="762" height="262" alt="image" src="https://github.com/user-attachments/assets/0acf8168-656d-48b0-8683-697c7a714697" />
+
+<img width="739" height="267" alt="image" src="https://github.com/user-attachments/assets/c64b1f77-52f0-43b6-ba4c-2545281c6b32" />
 
 - 인수로 전달받은 값을 resolve, reject하는 프로미스를 생성한다.
 
@@ -289,11 +294,11 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 - `Promise.all` 메서드는 여러개의 비동기 처리를 모두 병렬처리할 때 사용한다.
 
-> 예제 45-30
+<img width="740" height="586" alt="image" src="https://github.com/user-attachments/assets/1677294a-448b-444a-9e9a-b26961b74dc2" />
 
 - 위 예제는 3개의 비동기 처리를 순차적으로 한다. 총 6초가 소요된다. 각 처리는 서로 의존하지 않고 개별적으로 수행되고 있지만 순차적으로 작동되 퍼포먼스가 떨어진다.
 
-> 예제 45-31
+<img width="749" height="296" alt="image" src="https://github.com/user-attachments/assets/1204fd2f-e3d9-43ab-985c-4abe50363b97" />
 
 - `Promise.all` 메서드는 프로미스를 요소로 같는 배열 등의 이터러블을 인수로 전달받는다. 그리고 모든 프로미스가 fulfilled 상태가 되면 처리결과를 배열에 저장해 새로운 프로미스를 반환한다.
 
@@ -301,21 +306,21 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 ### 45.6.3 Promise.race
 
-> 예제 45-35
+<img width="757" height="223" alt="image" src="https://github.com/user-attachments/assets/116eea7c-8405-405e-b15d-ea727f9466e4" />
 
 - `Promise.race`는 `Promise.all`처럼 프로미스요소의 배열등의 이터러블 인수를 받는다. 다른점은 인수 중 가장 먼저 fulfilled 상태가 되는 프로미스 처리결과를 resolve로 반환한다.
 
 - rejected 상태는 `Promise.all`이랑 동일하게 하나라도 rejected되면 에러를 reject한 프로미스를 반환한다.
 
-> 예제 45-36
+<img width="749" height="241" alt="image" src="https://github.com/user-attachments/assets/17f7f489-15ee-44ee-97a4-019769a21df4" />
 
 ### 45.6.4 Promise.allSettled
 
-> 예제 45-37
+<img width="744" height="279" alt="image" src="https://github.com/user-attachments/assets/2476bc9e-f1c5-4af8-b4a0-c6caeda9679a" />
 
 - `Promise.allSettled`은 Promise.all`처럼 프로미스요소의 배열등의 이터러블 인수를 받는다. 위 두개랑 다르게 fulfilled, rejected를 같이 처리하며, 각 처리결과를 배열로 반환한다.
 
-> 예제 45 - 38
+<img width="753" height="206" alt="image" src="https://github.com/user-attachments/assets/76fb9eaa-faf6-4112-8fe1-7b0d939f25aa" />
 
 - 처리결과를 나타내는 객체는 위와 같다. 상태를 나타내는 status 프로퍼티와 상태에따라 value, reason 프로퍼티를 가진다.
 
@@ -323,7 +328,7 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 ## 45.7 마이크로태스크 큐
 
-> 예제 45-39
+<img width="751" height="166" alt="image" src="https://github.com/user-attachments/assets/1f0e1f70-7568-4d6a-89b3-b595237aadc4" />
 
 - 예제를 보면 프로미스 메서드들도 비동기니까, 태스크큐에 콜백이 순서대로 쌓여 실행되니 `1->2->3` 이라고 생각할 수도 있다.
 
@@ -341,4 +346,5 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 - fetch 함수는 HTTP 응답을 나타내는 Response 객체를 래핑한 Promise 객체를 반환한다.
 
-> 예제 45- 40
+<img width="760" height="477" alt="image" src="https://github.com/user-attachments/assets/c0bd18ce-aa03-4f71-9d4f-76ca7cba6e27" />
+
