@@ -10,7 +10,7 @@
 
 ### 45.1.1 콜백 헬
 
-- Ajax장에서 배운 XMLHttpRequest()로 get 요청을 작성해보자
+- Ajax장에서 배운 `XMLHttpRequest()`로 get 요청을 작성해보자
 
 ```js
 // GET 요청을 위한 비동기 함수
@@ -51,7 +51,7 @@ get("https://jsonplaceholder.typicode.com/posts/1");
 
 1. get은 비동기함수다. 왜냐하면 이 비동기 작업을 등록하고 스케줄링하는 js외부의 API를 다루고있고, 비동기적으로 동작하는 코드(xhr.onload 이벤트 핸들러와 대입될 콜백함수)을 가지고 있기 때문이다.
 
-2. get함수는 xhr.send()호출 이후에 xhr.onload에 콜백할 함수를 하나 대입하고는 끝난다. get함수는 요청의 응답을 받지 못하고 끝난다.
+2. get함수는 `xhr.send()`호출 이후에 xhr.onload에 콜백할 함수를 하나 대입하고는 끝난다. get함수는 요청의 응답을 받지 못하고 끝난다.
 
 3. xhr.onload에 들어간 콜백함수는 get함수가 끝난다음 비동기 스케쥴링이 끝난, load 이벤트가 발생하면 실행된다.
    정확히는 태크스큐에 저장되었다가 콜스택 비면 실행된다.
@@ -74,7 +74,7 @@ console.log(response); // undefined
 
 5. 이벤트 핸들러의 콜백함수의 반환문은 get의 반환문이 아니다.(당연)
 
-- 같은 예시로 setTimeout함수도 비동기 함수다. setTimeoute도 외부 API다.
+- 같은 예시로 `setTimeout`함수도 비동기 함수다. setTimeoute도 외부 API다.
 
 ```js
 let g = 0;
@@ -94,7 +94,7 @@ console.log(g); // 0
 
 - 후속처리를 수행하기 위해 또 비동기함수를 사용하면, 콜백이 늘어나고 콜백 호출은 점점 중첩된다.
 
-- 콜백 함수 호출이 중첩되며 복잡도가 높아지는 현상을 콜백헬 callback hell 이라 한다.
+- 콜백 함수 호출이 중첩되며 복잡도가 높아지는 현상을 콜백헬 `callback hell` 이라 한다.
 
 ```js
 // GET 요청을 위한 비동기 함수
@@ -147,19 +147,19 @@ get(`${url}/posts/1`, ({ userId }) => {
 
 ## 45.2 프로미스의 생성
 
-- ECMAScript 사양에 정의된 표준 빌트인 객체인 Promise 생성자 함수는 new와 함께 호출해 프로미스 객체를 생성한다.
+- ECMAScript 사양에 정의된 표준 빌트인 객체인 `Promise` 생성자 함수는 `new`와 함께 호출해 프로미스 객체를 생성한다.
 
-1. Promise 생성자함수는 콜백함수를 인수로 받는다.
-2. 콜백함수는 resolve와 reject 함수를 인수로 전달 받는다.
-3. 비동기 처리가 성공하면 resolve를 호출해주고, 실패하면 reject함수를 호출해 주자.
+1. `Promise` 생성자함수는 콜백함수를 인수로 받는다.
+2. 콜백함수는 `resolve`와 `reject` 함수를 인수로 전달 받는다.
+3. 비동기 처리가 성공하면 `resolve`를 호출해주고, 실패하면 `reject`함수를 호출해 주자.
 
 > 예제 45-10
 
-- 이전의 비동기함수 get을 프로미스를 사용해 구현해보기
+- 이전의 비동기함수 `get`을 프로미스를 사용해 구현해보기
 
 > 예제 45-11
 
-1. 비동기함수 promiseGet함수는 primise객체를 생성,반환
+1. 비동기함수 `promiseGet`함수는 primise객체를 생성,반환
 2. Promise생성자는 실행시킬 콜백을 인수로 넣어주기. 콜백은 resolve, reject를 인수로 전달받음.
 3. 비동기처리 결과를 resolve, reject에 인수로 넣어 호출하기
 
@@ -195,11 +195,11 @@ get(`${url}/posts/1`, ({ userId }) => {
 
 > 예제 45-14
 
-- then은 두개의 콜백을 인수로 전달받으며, fulfilled상태일때 첫번째, rejected상태일때 두번째 콜백을 호출한다.
+- `then`은 두개의 콜백을 인수로 전달받으며, fulfilled상태일때 첫번째, rejected상태일때 두번째 콜백을 호출한다.
 
-- then 메서드는 언제나 프로미스를 반환한다.
+- `then` 메서드는 언제나 프로미스를 반환한다.
 
-- then 메서드의 콜백함수가 프로미스를 반환하면 그대로 반환, 프로미스가 아닌값을 반환하면 그 값을 암묵적으로 resolve 또는 reject하여 프로미스를 생성, 반환한다.
+- `then` 메서드의 콜백함수가 프로미스를 반환하면 그대로 반환, 프로미스가 아닌값을 반환하면 그 값을 암묵적으로 resolve 또는 reject하여 프로미스를 생성, 반환한다.
 
 ### 45.3.2 Promise.prototype.catch
 
@@ -243,9 +243,9 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 > 45-19
 
-- 비동기처리에서 발생한 에러를 then 메서드의 두번째 콜백 함수인자 받아 처리하기.
+- 비동기처리에서 발생한 에러를 `then` 메서드의 두번째 콜백 함수인자 받아 처리하기.
 
-- 당연히 catch도 가능하다. catch는 내부적으로 then(undefined, onRejected)을 호출한다.
+- 당연히 `catch`도 가능하다. catch는 내부적으로 `then(undefined, onRejected)`을 호출한다.
 
 > 예제 45-21
 
@@ -254,7 +254,7 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 1. 첫번째 콜백의 에러를 캐치하지 못함
 2. 코드가 복잡해짐
 
-위 이유로 catch를 사용하자, catch는 앞의 then 호출 후 내부에서 발생한 에러까지 모두 캐치할 수 있다.
+위 이유로 `catch`를 사용하자, catch는 앞의 then 호출 후 내부에서 발생한 에러까지 모두 캐치할 수 있다.
 
 ## 45.5 프로미스체이닝
 
@@ -264,13 +264,13 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 - then -> then -> catch 순서로 후속처리 메서드를 호출한다. 항상 프로미스를 반환하므로 연속전으로 호출할 수 있다.
 
-- 이를 프로미스 체이닝(promise chaining)이라 한다.
+- 이를 프로미스 체이닝(`promise chaining`)이라 한다.
 
 - 이전의 비동기 처리를 위한 콜백 헬이 발생하지 않지만, 프로미스도 콜백함수를 사용하긴 한다.
 
-- 콜백 패턴은 가독성이 좋지 않다. 이를 ES8에서 도입된 async/await을 통해 해결할 수 있다.
+- 콜백 패턴은 가독성이 좋지 않다. 이를 ES8에서 도입된 `async/await`을 통해 해결할 수 있다.
 
-- async/await을 사용하면 프로미스 후속처리 메서드 없이 마치 동기 처리 처럼 프로미스가 처리 결과를 반환하도록 구현할 수 있다.
+- `async/awai`t을 사용하면 프로미스 후속처리 메서드 없이 마치 동기 처리 처럼 프로미스가 처리 결과를 반환하도록 구현할 수 있다.
 
 > 예제 45-25
 
@@ -287,7 +287,7 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 ### 45.6.2 Promise.all
 
-- Promise.all 메서드는 여러개의 비동기 처리를 모두 병렬처리할 때 사용한다.
+- `Promise.all` 메서드는 여러개의 비동기 처리를 모두 병렬처리할 때 사용한다.
 
 > 예제 45-30
 
@@ -295,29 +295,47 @@ promiseGet("https://jsonplaceholder.typicode.com/posts/1")
 
 > 예제 45-31
 
-- Promise.all 메서드는 프로미스를 요소로 같는 배열 등의 이터러블을 인수로 전달받는다. 그리고 모든 프로미스가 fulfilled 상태가 되면 처리결과를 배열에 저장해 새로운 프로미스를 반환한다.
+- `Promise.all` 메서드는 프로미스를 요소로 같는 배열 등의 이터러블을 인수로 전달받는다. 그리고 모든 프로미스가 fulfilled 상태가 되면 처리결과를 배열에 저장해 새로운 프로미스를 반환한다.
 
 - Pro,ise.all의 종료시간은 가장늦게 fulfilled 상태가 되는 프로미스 처리시간보다 약간 길다.
 
 ### 45.6.3 Promise.race
 
+> 예제 45-35
+
+- `Promise.race`는 `Promise.all`처럼 프로미스요소의 배열등의 이터러블 인수를 받는다. 다른점은 인수 중 가장 먼저 fulfilled 상태가 되는 프로미스 처리결과를 resolve로 반환한다.
+
+- rejected 상태는 `Promise.all`이랑 동일하게 하나라도 rejected되면 에러를 reject한 프로미스를 반환한다.
+
+> 예제 45-36
+
 ### 45.6.4 Promise.allSettled
+
+> 예제 45-37
+
+- `Promise.allSettled`은 Promise.all`처럼 프로미스요소의 배열등의 이터러블 인수를 받는다. 위 두개랑 다르게 fulfilled, rejected를 같이 처리하며, 각 처리결과를 배열로 반환한다.
+
+> 예제 45 - 38
+
+- 처리결과를 나타내는 객체는 위와 같다. 상태를 나타내는 status 프로퍼티와 상태에따라 value, reason 프로퍼티를 가진다.
+
+> `Error: Error! at <anonymous>:3:54`는 `reason`프로퍼티에 담긴 에러객체를 화면에 포멧해서 보여준 형태다.
 
 ## 45.7 마이크로태스크 큐
 
 > 예제 45-39
 
-- 예제를 보면 프로미스 메서드들도 비동기니까, 태스크큐에 콜백이 순서대로 쌓여 실행되니 1->2->3 이라고 생각할 수도 있다.
+- 예제를 보면 프로미스 메서드들도 비동기니까, 태스크큐에 콜백이 순서대로 쌓여 실행되니 `1->2->3` 이라고 생각할 수도 있다.
 
 - 프로미스 후속처리 메서드의 콜백함수는 태스크큐X, 마이크로태스크 큐에 저장된다.
 
 - 마이크로태스크 큐는 태스크 큐와는 별도의 큐다. 프로미스의 후속처리 메서드의 콜백함수가 일시저장되며, 태스크큐보다 우선순위가 높다.
 
-- 결과적으로 2->3->1의 출력이 나온다.
+- 결과적으로 `2->3->1`의 출력이 나온다.
 
 ## 45.8 fetch
 
-- fetch 함수는 XMLHttpRequest 객체와 마찬가지로 HTTP요청 전송기능을 제공하는 클라이언트 사이드 Web API다.
+- `fetch` 함수는 `XMLHttpRequest` 객체와 마찬가지로 HTTP요청 전송기능을 제공하는 클라이언트 사이드 Web API다.
 
 - 좀더 간단하고 프로미스를 지원한다.
 
