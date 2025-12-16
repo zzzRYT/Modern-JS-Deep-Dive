@@ -52,3 +52,23 @@ js는 웹의 단순 보조용 언어로 개발되어 다른 프로그래밍 언�
 <img width="660" height="152" alt="image" src="https://github.com/user-attachments/assets/f9699f1a-be31-46f8-bb22-f5c9158f7f92" />
 <img width="666" height="172" alt="image" src="https://github.com/user-attachments/assets/52a35737-0de2-46d0-8175-6e1256155fe9" />
 
+### 48.3.3 import 키워드
+
+다른 모듈에서 공개한 식별자를 로드하려면 `import`를 사용한다
+
+<img width="677" height="367" alt="image" src="https://github.com/user-attachments/assets/dbc55e95-116d-4ba0-95c2-af07054ba850" />
+
+위 `app.mjs`를 `script`태그로 로드하면 `lib.mjs`는 `app.mjs`의 의존성이기 때문에 굳이 로드하지 않아도 된다.
+
+모듈이 export한 식별자 이름을 하나하나 지정하지 않고 한번에 `import`도 가능하다 이때 `as`로 객체 이름을 지정한다.
+
+<img width="653" height="152" alt="image" src="https://github.com/user-attachments/assets/88fae3a5-be31-4882-9854-dde65f926037" />
+
+<img width="669" height="181" alt="image" src="https://github.com/user-attachments/assets/fda19081-c15b-4652-b69d-fffc47769d5c" />
+
+모듈이 하나의 값만 `export`한다면 `default`키워드를 사용해 이름 없이 하나의 값을 export한다.
+
+<img width="677" height="436" alt="image" src="https://github.com/user-attachments/assets/51ac1897-bba5-44a9-b3a6-ccde695edeef" />
+
+
+
