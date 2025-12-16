@@ -26,11 +26,20 @@ js는 웹의 단순 보조용 언어로 개발되어 다른 프로그래밍 언�
 근데 `js`를 극한으로 온몸 비틀기해서 사용하면서 모듈은 반드시 있어야하는데 그런 제한된 상황에서 나온게 `CommonJS`와 `AMD(Asynchronocus Module Definition)`다.
 이로써 모듈시스템은 크게 2가지로 나뉘게 되었고 모듈을 위해선 위 2가지를 구현한 모듈 로더 라이브러리를 써야하는 상황이였다.
 
+### common js
+
+동기방식으로 파일을 불러오는 방식(브라우저에서 쓰면 동기라 멈출수잇음)
+
+### AMD
+
+<img width="728" height="606" alt="image" src="https://github.com/user-attachments/assets/60dad22f-e6e1-42d7-bc00-894b22759358" />
 
 ### 48.3 ESM
 이런 상황에서 `ES6`에서 클라이언트에서도 작동하는 모듈을 추가했다.
 사용법은 `script`태그에 `type=module`어트리뷰트를 추가해 로드된 스크립트가 모듈로서 동작한다.
 
+
+###
 <img width="726" height="117" alt="image" src="https://github.com/user-attachments/assets/6e567157-8b71-49f6-9b78-56fbff84bedf" />
 
 ### 48.3.1 모듈 스코프
